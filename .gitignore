@@ -2,7 +2,7 @@
 node_modules
 
 #config
-congfig.js
+config.js
 
 #vs
 slnx.sqlite
