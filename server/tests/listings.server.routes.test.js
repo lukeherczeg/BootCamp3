@@ -114,7 +114,7 @@ describe('Listings CRUD tests', function() {
   sends the listing to the database.
 
   You can comment the two coordinate tests until you have completed the code the 
-  coordinates.server.controller.js file 
+  coordinates.server.controller.js file */
 
   it('should be able to save a listing with coordinates', function(done) {
     var listing2 = {
@@ -166,7 +166,5 @@ describe('Listings CRUD tests', function() {
       });
     }else done();
   });
-
-  */
 });
 

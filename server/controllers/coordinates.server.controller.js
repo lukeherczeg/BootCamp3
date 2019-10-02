@@ -9,7 +9,7 @@ module.exports = function(req, res, next) {
       var addressTemp = req.body.address;
       var addressTemp2 = addressTemp.toLowerCase();
       var addressTemp3 = addressTemp2.replace(/\s/g, "%20");
-      var addressTemp4 = addressTemp3.replace(/,/g , "%2C");
+      var addressTemp4 = addressTemp3.replace(/,/g, "%2C");
       
     //Setup your options q and key are provided. Feel free to add others to make the JSON response less verbose and easier to read 
     var options = { 
@@ -32,8 +32,21 @@ module.exports = function(req, res, next) {
 
           Assumption: if we get a result we will take the coordinates from the first result returned
         */
-        //  req.results = stores you coordinates
-        next();
+          //  req.results = stores your coordinates
+          if (error) {
+              console.log(error);
+              res.status(400).send(error);
+          } else {
+              let info = JSON.parse(body);
+              if (info.results[0] != null) {
+                  req.results = info.results[0].geometry;
+                  console.log(addressTemp4);
+              }
+              else
+                  console.log("No coordinates were given from OpenCage.");
+          }
+         
+          next();
     });
   } else {
     next();
