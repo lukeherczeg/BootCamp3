@@ -137,7 +137,7 @@ describe('Listings CRUD tests', function() {
         done();
       });
   });
-
+  
   it('should be able to delete the listing with coordinates', function(done) {
     agent.delete('/api/listings/' + id2)
       .expect(200)
